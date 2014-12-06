@@ -1,0 +1,15 @@
+machine:
+  node:
+    version: 0.10.28
+
+checkout:
+  - git clone $TEST_REPO
+
+dependencies:
+  pwd: $TEST_REPO_DIR
+  override:
+    - npm install
+    - sh -c "if [ '$HAPI_REPO' ] && [ '$HAPI_COMMIT' ]; then sh -c 'cd node_modules; rm -r hapi; git clone $HAPI_REPO; cd hapi; git checkout $HAPI_COMMIT; npm install;' fi"
+test:
+  override:
+    - php ./test-suite/run.php --unit-tests
