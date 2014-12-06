@@ -14,4 +14,5 @@ dependencies:
     - sh -c "if [ '$HAPI_REPO' ]; then sh -c 'cd $TEST_REPO_DIR/node_modules/hapi; npm install'; fi"
 test:
   override:
-    - cd $TEST_REPO_DIR && sh -c '$TEST_COMMAND' && cp $REPORT_FILE ../
+    - mkdir -p $CIRCLE_TEST_REPORTS/rspec
+    - cd $TEST_REPO_DIR && sh -c '$TEST_COMMAND' && cp $REPORT_FILE $CIRCLE_TEST_REPORTS/rspec/
