@@ -1,6 +1,6 @@
 machine:
   node:
-    version: 0.10.28
+    version: 0.10.33
 
 checkout:
   override:
@@ -15,4 +15,5 @@ dependencies:
 test:
   override:
     - mkdir -p $CIRCLE_TEST_REPORTS/rspec
-    - cd $TEST_REPO_DIR && sh -c '$TEST_COMMAND' && cp $REPORT_FILE $CIRCLE_TEST_REPORTS/rspec/
+    - cd $TEST_REPO_DIR && sh -c '$TEST_COMMAND'
+    - cd $TEST_REPO_DIR && cp $REPORT_FILE $CIRCLE_TEST_REPORTS/rspec/
