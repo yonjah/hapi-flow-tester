@@ -8,7 +8,8 @@ checkout:
 
 dependencies:
   override:
-    - cd $TEST_REPO_DIR &&  npm install && sh -c '$FLOW_CMD'
+    - cd $TEST_REPO_DIR &&  npm install
+    - cd $TEST_REPO_DIR &&  sh -c '$FLOW_CMD'
 test:
   override:
     - mkdir -p $CIRCLE_TEST_REPORTS/rspec
