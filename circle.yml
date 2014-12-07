@@ -8,10 +8,7 @@ checkout:
 
 dependencies:
   override:
-    - cd $TEST_REPO_DIR &&  npm install
-    - sh -c "if [ '$HAPI_REPO' ]; then sh -c 'cd $TEST_REPO_DIR/node_modules; rm -r hapi; git clone $HAPI_REPO'; fi"
-    - sh -c "if [ '$HAPI_REPO' ] && [ '$HAPI_COMMIT' ]; then sh -c 'cd $TEST_REPO_DIR/node_modules/hapi; git checkout $HAPI_COMMIT'; fi"
-    - sh -c "if [ '$HAPI_REPO' ]; then sh -c 'cd $TEST_REPO_DIR/node_modules/hapi; npm install'; fi"
+    - cd $TEST_REPO_DIR &&  npm install && sh -c '$FLOW_CMD'
 test:
   override:
     - mkdir -p $CIRCLE_TEST_REPORTS/rspec
