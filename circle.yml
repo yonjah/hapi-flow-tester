@@ -10,6 +10,7 @@ dependencies:
   override:
     - cd $TEST_REPO_DIR &&  npm install
     - cd $TEST_REPO_DIR &&  sh -c 'echo $FLOW_CMD' > flow_dep_runner.sh
+    - cd $TEST_REPO_DIR &&  cat flow_dep_runner.sh
     - cd $TEST_REPO_DIR &&  sh ./flow_dep_runner.sh
 test:
   override:
